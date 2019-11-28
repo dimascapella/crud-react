@@ -25,7 +25,7 @@ function App() {
       </nav>
       <Route path="/" exact component={Home} />
       <Route path="/form" component={Data} />
-      <Route path="/edit" component={Edit} />
+      <Route path="/edit/:id" component={Edit} />
     </Router>
   );
 }

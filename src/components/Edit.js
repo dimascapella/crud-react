@@ -62,7 +62,7 @@ export default class Edit extends Component {
     axios.post('http://localhost:8000/todos/update/' + this.props.match.params.id, newTodo)
       .then(res => console.log(res.data));
 
-    this.props.history.push('/data');
+    this.props.history.push('/');
   }
 
   render() {

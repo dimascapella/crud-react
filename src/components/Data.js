@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default class Data extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = { todos: [] };
+  }
+
   componentDidMount() {
     axios.get('http://localhost:8000/todos/')
       .then(response => {

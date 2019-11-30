@@ -6,6 +6,7 @@ import './App.css';
 import Home from '../src/components/Home';
 import Data from '../src/components/Data';
 import Edit from '../src/components/Edit';
+import Login from '../src/components/Login';
 
 function App() {
   return (
@@ -20,11 +21,15 @@ function App() {
             <li className="nav-item">
               <Link className="nav-link" to="/form">Data</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
+            </li>
           </ul>
         </div>
       </nav>
       <Route path="/" exact component={Home} />
       <Route path="/form" component={Data} />
+      <Route path="/login" component={Login} />
       <Route path="/edit/:id" component={Edit} />
     </Router>
   );

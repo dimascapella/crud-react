@@ -5,11 +5,8 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-
-    this.onChangeNama = this.onChangeNama.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
 
     this.state = {
       nama: '',
@@ -18,22 +15,10 @@ export default class Home extends Component {
     }
   }
 
-  onChangeNama(e) {
+  onChange(name, value) {
     this.setState({
-      nama: e.target.value
-    });
-  }
-
-  onChangeEmail(e) {
-    this.setState({
-      email: e.target.value
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
+      [name]: value
+    })
   }
 
   onSubmit(e) {
@@ -48,15 +33,10 @@ export default class Home extends Component {
     axios.post('http://localhost:8000/todos/add', newTodo)
       .then(res => console.log(res.data));
 
-    console.log(`${this.state.nama}`);
-    console.log(`${this.state.email}`);
-    console.log(`${this.state.password}`);
-
     this.setState({
       nama: '',
       email: '',
-      password: '',
-      completed: false
+      password: ''
     })
   }
 
@@ -69,15 +49,15 @@ export default class Home extends Component {
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <label>Name</label>
-                <input type="text" className="form-control" value={this.state.nama} onChange={this.onChangeNama} />
+                <input type="text" className="form-control" value={this.state.nama} onChange={event => this.onChange('nama', event.target.value)} />
               </div>
               <div className="form-group">
                 <label>Email</label>
-                <input type="text" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+                <input type="text" className="form-control" value={this.state.email} onChange={event => this.onChange('email', event.target.value)} />
               </div>
               <div className="form-group">
                 <label>Password</label>
-                <input type="password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
+                <input type="password" className="form-control" value={this.state.password} onChange={event => this.onChange('password', event.target.value)} />
               </div>
               <button className="btn btn-primary">Submit</button>
             </form>

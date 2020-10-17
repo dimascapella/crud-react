@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <Link className="nav-link" to="/">CRUD - React</Link>
+        <Link className="nav-link" to="/">CRUD - React To Do List</Link>
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item active">
